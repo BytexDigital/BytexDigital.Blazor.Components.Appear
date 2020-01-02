@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BytexDigital.Blazor.Components.Appear", "BytexDigital.Blazor.Components.Appear\BytexDigital.Blazor.Components.Appear.csproj", "{D256086A-04C9-42A8-9B5D-51986B43969D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BytexDigital.Blazor.Components.Appear.Core", "BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj", "{2FDEBA56-3503-44F3-9569-3EB631ACD61F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D256086A-04C9-42A8-9B5D-51986B43969D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D256086A-04C9-42A8-9B5D-51986B43969D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D256086A-04C9-42A8-9B5D-51986B43969D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D256086A-04C9-42A8-9B5D-51986B43969D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDEBA56-3503-44F3-9569-3EB631ACD61F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDEBA56-3503-44F3-9569-3EB631ACD61F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDEBA56-3503-44F3-9569-3EB631ACD61F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDEBA56-3503-44F3-9569-3EB631ACD61F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EE316D4-FD14-4D8A-939F-573E81364F6A}
+	EndGlobalSection
+EndGlobal
