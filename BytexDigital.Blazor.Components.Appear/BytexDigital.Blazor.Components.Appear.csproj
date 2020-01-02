@@ -1,8 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <Authors>Ryan Torzynski</Authors>
+    <Company>Bytex Digital UG (haftungsbeschränkt)</Company>
+    <Description>Small wrapper library for jquery.appear https://github.com/morr/jquery.appear.</Description>
+    <PackageProjectUrl>https://github.com/BytexDigital/BytexDigital.Blazor.Components.Appear</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BytexDigital/BytexDigital.Blazor.Components.Appear</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
 
@@ -14,6 +22,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

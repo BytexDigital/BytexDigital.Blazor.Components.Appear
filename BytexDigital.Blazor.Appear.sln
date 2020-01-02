@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BytexDigital.Blazor.Components.Appear", "BytexDigital.Blazor.Components.Appear\BytexDigital.Blazor.Components.Appear.csproj", "{D256086A-04C9-42A8-9B5D-51986B43969D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BytexDigital.Blazor.Components.Appear.Core", "BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj", "{2FDEBA56-3503-44F3-9569-3EB631ACD61F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BytexDigital.Blazor.Components.Appear.Core", "BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj", "{2FDEBA56-3503-44F3-9569-3EB631ACD61F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{2B9DB8EF-7FFC-4E42-8E0A-953735E5323B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{2AF8DE23-90F4-4B02-BEDA-BD53B9EFDD09}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D256086A-04C9-42A8-9B5D-51986B43969D} = {2B9DB8EF-7FFC-4E42-8E0A-953735E5323B}
+		{2FDEBA56-3503-44F3-9569-3EB631ACD61F} = {2B9DB8EF-7FFC-4E42-8E0A-953735E5323B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EE316D4-FD14-4D8A-939F-573E81364F6A}
