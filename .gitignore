@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/BytexDigital.Blazor.Components.Appear/publish.ps1
