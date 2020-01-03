@@ -1,12 +1,23 @@
-### BytexDigital.Blazor.Components.Appear
+![Nuget](https://img.shields.io/nuget/v/BytexDigital.Blazor.Components.Appear.svg?style=flat-square)
+![StableVersion](https://img.shields.io/badge/stable_version-v1.0.2-green.svg?style=flat-square)
+
+# BytexDigital.Blazor.Components.Appear
 
 This library is a small Blazor wrapper for the library https://github.com/morr/jquery.appear.
 
-#### Requirements
+## Download
+
+[nuget package](https://www.nuget.org/packages/BytexDigital.Blazor.Components.Appear/)
+
+```
+Install-Package BytexDigital.Blazor.Components.Appear
+```
+
+## Requirements
 
 - jQuery 2.1.4 or higher
 
-#### Usage
+## Usage
 
 1. **Add required JavaScript**
 

@@ -11,6 +11,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
 
@@ -21,7 +22,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj" />
+    <ProjectReference Include="..\BytexDigital.Blazor.Components.Appear.Core\BytexDigital.Blazor.Components.Appear.Core.csproj" TreatAsPackageReference="false" PrivateAssets="all" />
   </ItemGroup>
 
 
@@ -32,4 +33,13 @@
     </None>
   </ItemGroup>
 
+  <PropertyGroup>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+  </PropertyGroup>
+  
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+    </ItemGroup>
+  </Target>
 </Project>
