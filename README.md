@@ -1,6 +1,7 @@
 ### BytexDigital.Blazor.Components.Appear
 
 This library is a small Blazor wrapper for the library https://github.com/morr/jquery.appear.
+It adds a simple to use component that is aware whether it is on the screen or not, allowing for features such as infinite scrolling or long complex lists that only their render their actual content when on the screen.
 
 #### Requirements
 
