@@ -1,5 +1,5 @@
 ![Nuget](https://img.shields.io/nuget/v/BytexDigital.Blazor.Components.Appear.svg?style=flat-square)
-![StableVersion](https://img.shields.io/badge/stable_version-v1.0.2-green.svg?style=flat-square)
+![StableVersion](https://img.shields.io/badge/stable_version-v1.0.3-green.svg?style=flat-square)
 
 # BytexDigital.Blazor.Components.Appear
 
