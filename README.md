@@ -42,7 +42,7 @@ This can achieved through 2 ways:
 2. **Use the provided component container**
 
 ```html
-<VisibilityAwareContainer OnAppeared="..." OnDisappeared="..." OnlyFireAppearOnce="false">
+<VisibilityAwareContainer OnAppeared="..." OnDisappeared="..." OnFirstAppeared="...">
     ... content
 </VisibilityAwareContainer>
 ```
@@ -50,6 +50,6 @@ This can achieved through 2 ways:
 ### Container Options
 - `OnAppeared` Fires every time the container gets close to the viewport.
 - `OnDisappeared` Fires every time the container leaves the viewport.
-- `OnlyFireAppearOnce` Defaults to `false`. If enabled, `OnAppeared` will only fire once and `OnDisappeared` will be entirely disabled.
+- `OnFirstAppeared` Fires only the first time the container appears in the viewport.
 - `State` Optional state object that will be passed into `OnAppeared` and `OnDisappeared`.
 - `AppearOffset` Defaults to 0. Greater values will make `OnAppeared` fire earlier.
