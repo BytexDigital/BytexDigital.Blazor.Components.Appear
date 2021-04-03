@@ -4,7 +4,7 @@
 # BytexDigital.Blazor.Components.Appear
 
 This library is a small Blazor wrapper for the library https://github.com/morr/jquery.appear.
-It adds a simple to use component that is aware whether it is on the screen or not, allowing for features such as infinite scrolling or long complex lists that only their render their actual content when on the screen.
+It adds a simple to use component that is aware whether it is on the screen or not, allowing for features such as infinite scrolling or long complex lists that only render their actual content when on the screen.
 
 ## Download
 
@@ -23,18 +23,13 @@ Install-Package BytexDigital.Blazor.Components.Appear
 1. **Add required JavaScript**
 
 This component library requires client-side javascript code to be included in your project.
-This can achieved through 2 ways:
-
-- Use the included `IHtmlHelper` extension method and use it in your `_Host.cshtml` as follows
-```csharp
-<!-- jQuery 2.1.4 or higher required -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-@Html.IncludeAppearScripts()
-```
 
 - Include the `bundle.js` file manually
 ```html
+<!-- jQuery 2.1.4 or higher required -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Javascript code for this library -->
 <script src='/_content/BytexDigital.Blazor.Components.Appear/bundle.js'></script>
 ```
 
