@@ -1,70 +1,8 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@_content
 
-@using Microsoft.JSInterop
-
-<div id="@Id" @ref="ContainerElementReference" data-appear-top-offset="@AppearOffset">
-    @ChildContent
-</div>
-
-@code {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public string Id { get; set; }
-
-    [Parameter]
-    public int AppearOffset { get; set; }
-
-    [Parameter]
-    public EventCallback<object> OnAppeared { get; set; }
-
-    [Parameter]
-    public EventCallback<object> OnDisappeared { get; set; }
-
-    [Parameter]
-    public EventCallback<object> OnFirstAppeared { get; set; }
-
-    [Parameter]
-    public object State { get; set; }
-
-    public ElementReference ContainerElementReference { get; private set; }
-    public bool HasAppeared { get; private set; }
-
-    public override async Task SetParametersAsync(ParameterView parameters)
-    {
-        if (!parameters.TryGetValue(nameof(Id), out string containerId))
-        {
-            Id = $"vac-{Guid.NewGuid().ToString()}";
-        }
-
-        await base.SetParametersAsync(parameters);
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (!firstRender) return;
-
-        await JSRuntime.InvokeVoidAsync(
-            "BytexDigitalBlazorComponentsAppear.RegisterElement",
-            ContainerElementReference,
-            DotNetObjectReference.Create(this),
-            nameof(JsOnAppeared),
-            nameof(JsOnDisappeared));
-    }
-
-    [JSInvokable]
-    public async Task JsOnAppeared()
-    {
-        if (!HasAppeared) await OnFirstAppeared.InvokeAsync(State);
-
-        HasAppeared = true;
-        await OnAppeared.InvokeAsync(State);
-    }
-
-    [JSInvokable]
-    public async Task JsOnDisappeared()
-    {
-        await OnDisappeared.InvokeAsync(State);
-    }
-}
+<VisibilityObserver OnFirstAppeared="async () => await OnFirstAppeared.InvokeAsync()"
+                    OnAppeared="async () => await OnAppeared.InvokeAsync()"
+                    OnDisappeared="async () => await OnDisappeared.InvokeAsync()"
+                    DetectionBoundingBoxMargin="@BoundingBoxMargin"
+                    ElementQuerySelector="@($"[_appear-id={Id}]")"
+                    @ref="_visibilityObserver" />

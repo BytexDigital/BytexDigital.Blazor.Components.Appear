@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <Authors>Ryan Torzynski</Authors>
     <Company>Bytex Digital UG (haftungsbeschränkt)</Company>
-    <Description>Small wrapper library for jquery.appear https://github.com/morr/jquery.appear.</Description>
+    <Description>Simple library that adds components to determine whether an element is visible or not.</Description>
     <PackageProjectUrl>https://github.com/BytexDigital/BytexDigital.Blazor.Components.Appear</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BytexDigital/BytexDigital.Blazor.Components.Appear</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <Version>1.0.4</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
   </ItemGroup>
 
 

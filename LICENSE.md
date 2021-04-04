@@ -174,7 +174,3 @@
       of your accepting any such warranty or additional liability.
 
    END OF TERMS AND CONDITIONS
-
-### Additional notice
-The file `BytexDigital.Blazor.Components.Appear/wwwroot/bundle.js` contains code licensed under the MIT license.
-View the respective file for more information.
