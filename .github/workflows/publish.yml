@@ -11,16 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Publish
-      - name: Publish on version change
-        id: publish_nuget
-        uses: rohith/publish-nuget@v2
-        with:
-          # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: BytexDigital.Blazor.Components.Appear/BytexDigital.Blazor.Components.Appear.csproj
-          
-          # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: BytexDigital.Blazor.Components.Appear
+      - name: Build projects
+        run: dotnet build -c Release
 
-          # API key to authenticate with NuGet server
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: Pack projects
+        run: dotnet pack --include-symbols -p:SymbolPackageFormat=snupkg --no-build -c Release -o .
+
+      - name: Push projects
+        run: dotnet nuget push **/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
