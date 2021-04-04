@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BytexDigital.Blazor.Components.Appear
@@ -41,6 +42,9 @@ namespace BytexDigital.Blazor.Components.Appear
         [Parameter]
         public string Tag { get; set; } = "div";
 
+        [Parameter(CaptureUnmatchedValues = true)]
+        public Dictionary<string, object> AdditionalAttributes { get; set; }
+
         /// <summary>
         /// Value that indicates whether the element has appeared atleast once in the viewport.
         /// </summary>
@@ -73,6 +77,7 @@ namespace BytexDigital.Blazor.Components.Appear
 
                 builder.OpenElement(i++, Tag);
                 builder.AddAttribute(i++, "_appear-id", Id);
+                builder.AddMultipleAttributes(i++, AdditionalAttributes);
                 builder.AddContent(i++, ChildContent);
                 builder.CloseElement();
             };
