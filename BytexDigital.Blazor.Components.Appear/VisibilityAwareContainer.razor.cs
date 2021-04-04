@@ -36,7 +36,7 @@ namespace BytexDigital.Blazor.Components.Appear
         /// <para>View <see href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options">'rootMargin' in the IntersectionObserver documentation</see> for details.</para>
         /// </summary>
         [Parameter]
-        public string DetectionBoundingBoxMargin { get; set; } = "0px";
+        public string BoundingBoxMargin { get; set; } = "0px";
 
         [Parameter]
         public string Tag { get; set; } = "div";
@@ -57,7 +57,7 @@ namespace BytexDigital.Blazor.Components.Appear
 
         public override async Task SetParametersAsync(ParameterView parameters)
         {
-            if (!parameters.TryGetValue(nameof(Id), out string containerId))
+            if (!parameters.TryGetValue(nameof(Id), out string containerId) && string.IsNullOrEmpty(Id))
             {
                 Id = $"id-{Guid.NewGuid()}";
             }

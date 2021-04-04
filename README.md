@@ -1,5 +1,4 @@
 ![Nuget](https://img.shields.io/nuget/v/BytexDigital.Blazor.Components.Appear.svg?style=flat-square)
-![StableVersion](https://img.shields.io/badge/stable_version-v1.0.3-green.svg?style=flat-square)
 
 # BytexDigital.Blazor.Components.Appear
 
@@ -29,7 +28,7 @@ Install-Package BytexDigital.Blazor.Components.Appear
 - `OnAppeared` Fires every time the container gets close to the viewport.
 - `OnDisappeared` Fires every time the container leaves the viewport.
 - `OnFirstAppeared` Fires only the first time the container appears in the viewport.
-- `DetectionBoundingBoxMargin` Defaults to 0px. Greater values will make `OnAppeared` fire earlier. View https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options for more details on this option.
+- `BoundingBoxMargin` Defaults to 0px. Greater values will make `OnAppeared` fire earlier. View https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options for more details on this option.
 
 ## Usage VisibilityObserver
 
@@ -39,6 +38,6 @@ This component can be used when you do not want to wrap your content in a Visibi
 <VisibilityObserver OnFirstAppeared="..."
                     OnAppeared="..."
                     OnDisappeared="..."
-                    DetectionBoundingBoxMargin="0px"
+                    BoundingBoxMargin="0px"
                     ElementQuerySelector="#myElementId"  />
 ```

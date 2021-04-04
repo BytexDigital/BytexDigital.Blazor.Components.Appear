@@ -33,7 +33,7 @@ namespace BytexDigital.Blazor.Components.Appear
         /// <para>View <see href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options">'rootMargin' in the IntersectionObserver documentation</see> for details.</para>
         /// </summary>
         [Parameter]
-        public string DetectionBoundingBoxMargin { get; set; } = "0px";
+        public string BoundingBoxMargin { get; set; } = "0px";
 
         /// <summary>
         /// The query selector for the element being observed.
@@ -63,7 +63,7 @@ namespace BytexDigital.Blazor.Components.Appear
                 DotNetObjectReference.Create(this),
                 nameof(JsOnAppeared),
                 nameof(JsOnDisappeared),
-                DetectionBoundingBoxMargin);
+                BoundingBoxMargin);
 
         }
 
