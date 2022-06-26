@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-
-using System.Threading.Tasks;
 
 namespace BytexDigital.Blazor.Components.Appear
 {
@@ -53,35 +52,63 @@ namespace BytexDigital.Blazor.Components.Appear
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (!firstRender) return;
+            try
+            {
+                if (!firstRender)
+                {
+                    return;
+                }
 
-            var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/BytexDigital.Blazor.Components.Appear/main.js");
+                var module = await JSRuntime.InvokeAsync<IJSObjectReference>(
+                    "import",
+                    "./_content/BytexDigital.Blazor.Components.Appear/main.js");
 
-            await module.InvokeVoidAsync(
-                "observe",
-                ElementQuerySelector,
-                DotNetObjectReference.Create(this),
-                nameof(JsOnAppeared),
-                nameof(JsOnDisappeared),
-                BoundingBoxMargin);
-
+                await module.InvokeVoidAsync(
+                    "observe",
+                    ElementQuerySelector,
+                    DotNetObjectReference.Create(this),
+                    nameof(JsOnAppeared),
+                    nameof(JsOnDisappeared),
+                    BoundingBoxMargin);
+            }
+            catch
+            {
+                // Ignore ex, usually due to bad references when the element is not existant anymore
+            }
         }
 
         [JSInvokable]
         public async Task JsOnAppeared()
         {
-            if (!HasAppeared) await OnFirstAppeared.InvokeAsync();
+            try
+            {
+                if (!HasAppeared)
+                {
+                    await OnFirstAppeared.InvokeAsync();
+                }
 
-            IsVisible = true;
-            HasAppeared = true;
-            await OnAppeared.InvokeAsync();
+                IsVisible = true;
+                HasAppeared = true;
+                await OnAppeared.InvokeAsync();
+            }
+            catch
+            {
+                // Ignore
+            }
         }
 
         [JSInvokable]
         public async Task JsOnDisappeared()
         {
-            IsVisible = false;
-            await OnDisappeared.InvokeAsync();
+            try
+            {
+                IsVisible = false;
+                await OnDisappeared.InvokeAsync();
+            }
+            catch
+            {
+                // Ignore
+            }
         }
     }
 }
