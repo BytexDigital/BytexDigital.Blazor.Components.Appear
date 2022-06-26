@@ -29,6 +29,7 @@ Install-Package BytexDigital.Blazor.Components.Appear
 - `OnDisappeared` Fires every time the container leaves the viewport.
 - `OnFirstAppeared` Fires only the first time the container appears in the viewport.
 - `BoundingBoxMargin` Defaults to 0px. Greater values will make `OnAppeared` fire earlier. View https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options for more details on this option.
+- `Tag` The HTML tag used for the container.
 
 ## Usage VisibilityObserver
 
