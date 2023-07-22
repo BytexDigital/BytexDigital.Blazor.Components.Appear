@@ -40,5 +40,53 @@ This component can be used when you do not want to wrap your content in a Visibi
                     OnAppeared="..."
                     OnDisappeared="..."
                     BoundingBoxMargin="0px"
-                    ElementQuerySelector="#myElementId"  />
+                    ElementQuerySelector="#myElementId"
+                    ThresholdInterval="0.1" />
+```
+
+## Usage VisibilityComparer
+
+The VisibilityComparer is used to determine the most visible observer of a collection of observers. This can be useful
+when e.g. implementing nav bars that update their active link according to the currently visible section of the page.
+
+A simple usage example is attached to implement this scenario.
+
+```html
+@page "/"
+
+@code {
+
+    public string VisibleSectionId { get; set; }
+    
+    private void Callback(VisibilityObserver obj)
+    {
+        VisibleSectionId = obj.ElementQuerySelector;
+        
+        // Could also use the Data property to decide what to do
+        // obj.Data~~~~
+
+        StateHasChanged();
+    }
+
+}
+
+<VisibilityComparer OnMostVisibleElementChanged="Callback">
+    <VisibilityObserver ThresholdInterval="0.1" ElementQuerySelector="#section1" />
+    <VisibilityObserver ThresholdInterval="0.1" ElementQuerySelector="#section2" />
+    <!-- You can also the Data property to pass meaningful info through to the callback above. -->
+    <!-- <VisibilityObserver ThresholdInterval="0.1" ElementQuerySelector="#section2" Data="..." /> -->
+</VisibilityComparer>
+
+<header>
+    <a href="#section1" class="@(VisibleSectionId == "#section1" ? "active" : null)"></a>
+    <a href="#section2" class="@(VisibleSectionId == "#section2" ? "active" : null)"></a>
+</header>
+
+<section id="section1">
+    ...
+</section>
+
+<section id="section2">
+    ...
+</section>
 ```

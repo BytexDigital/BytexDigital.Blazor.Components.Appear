@@ -156,6 +156,8 @@ namespace BytexDigital.Blazor.Components.Appear
                 HasAppeared = true;
 
                 await OnAppeared.InvokeAsync();
+
+                CurrentThreshold = threshold;
                 await OnThresholdReached.InvokeAsync(threshold);
 
                 if (Comparer != null) await Comparer.NotifyThresholdChangedAsync(this);
@@ -173,6 +175,8 @@ namespace BytexDigital.Blazor.Components.Appear
             {
                 IsVisible = false;
                 await OnDisappeared.InvokeAsync();
+                
+                CurrentThreshold = threshold;
                 await OnThresholdReached.InvokeAsync(threshold);
 
                 if (Comparer != null) await Comparer.NotifyThresholdChangedAsync(this);

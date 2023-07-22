@@ -12,6 +12,6 @@
     });
 
     observer.observe(document.querySelector(elementSelector));
-};
+}
 
 export { observe }
