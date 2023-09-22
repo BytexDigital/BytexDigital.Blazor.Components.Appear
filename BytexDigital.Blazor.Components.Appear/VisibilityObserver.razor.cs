@@ -92,6 +92,9 @@ namespace BytexDigital.Blazor.Components.Appear
 
         [CascadingParameter]
         public VisibilityComparer Comparer { get; set; }
+        
+        [Parameter]
+        public EventCallback OnInitialized { get; set; }
 
         public async ValueTask DisposeAsync()
         {
@@ -135,6 +138,10 @@ namespace BytexDigital.Blazor.Components.Appear
                     nameof(JsOnDisappeared),
                     BoundingBoxMargin,
                     thresholds);
+                
+                StateHasChanged();
+
+                await OnInitialized.InvokeAsync();
             }
             catch
             {

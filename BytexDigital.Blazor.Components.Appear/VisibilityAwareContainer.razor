@@ -1,6 +1,10 @@
-﻿@_content
+﻿@if (_visibilityObserver != null)
+{
+    @_content
+}
 
-<VisibilityObserver OnFirstAppeared="async () => await OnFirstAppeared.InvokeAsync()"
+<VisibilityObserver OnInitialized="OnVisiblityObserverInitializedAsync"
+                    OnFirstAppeared="async () => await OnFirstAppeared.InvokeAsync()"
                     OnAppeared="async () => await OnAppeared.InvokeAsync()"
                     OnDisappeared="async () => await OnDisappeared.InvokeAsync()"
                     Thresholds="Thresholds"

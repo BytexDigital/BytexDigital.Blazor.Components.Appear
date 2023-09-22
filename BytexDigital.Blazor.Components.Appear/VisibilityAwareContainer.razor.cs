@@ -51,12 +51,12 @@ namespace BytexDigital.Blazor.Components.Appear
         /// <summary>
         /// Value that indicates whether the element has appeared atleast once in the viewport.
         /// </summary>
-        public bool HasAppeared => _visibilityObserver.HasAppeared;
+        public bool HasAppeared => _visibilityObserver?.HasAppeared ?? false;
 
         /// <summary>
         /// Value that indicates whether the element is currently in the viewport.
         /// </summary>
-        public bool IsVisible => _visibilityObserver.IsVisible;
+        public bool IsVisible => _visibilityObserver?.IsVisible ?? false;
         
         
         
@@ -93,6 +93,11 @@ namespace BytexDigital.Blazor.Components.Appear
             }
 
             await base.SetParametersAsync(parameters);
+        }
+
+        protected async Task OnVisiblityObserverInitializedAsync()
+        {
+            await InvokeAsync(StateHasChanged);
         }
 
         protected override void OnParametersSet()
