@@ -95,7 +95,7 @@ namespace BytexDigital.Blazor.Components.Appear
             await base.SetParametersAsync(parameters);
         }
 
-        protected async Task OnVisiblityObserverInitializedAsync()
+        protected async Task OnVisibilityObserverInitializedAsync()
         {
             await InvokeAsync(StateHasChanged);
         }
