@@ -3,6 +3,10 @@
 <VisibilityObserver OnFirstAppeared="async () => await OnFirstAppeared.InvokeAsync()"
                     OnAppeared="async () => await OnAppeared.InvokeAsync()"
                     OnDisappeared="async () => await OnDisappeared.InvokeAsync()"
+                    Thresholds="Thresholds"
+                    ThresholdInterval="ThresholdInterval"
+                    Data="Data"
+                    OnThresholdReached="async () => await OnThresholdReached.InvokeAsync()"
                     BoundingBoxMargin="@BoundingBoxMargin"
                     ElementQuerySelector="@($"[_appear-id={Id}]")"
                     @ref="_visibilityObserver" />

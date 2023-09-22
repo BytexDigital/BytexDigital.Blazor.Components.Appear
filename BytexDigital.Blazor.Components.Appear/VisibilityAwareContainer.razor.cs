@@ -12,7 +12,7 @@ namespace BytexDigital.Blazor.Components.Appear
         public string Id { get; set; }
 
         [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        public RenderFragment<VisibilityAwareContainer> ChildContent { get; set; }
 
         /// <summary>
         /// Callback to be executed every time the element appears in the viewport.
@@ -31,6 +31,9 @@ namespace BytexDigital.Blazor.Components.Appear
         /// </summary>
         [Parameter]
         public EventCallback OnFirstAppeared { get; set; }
+        
+        [Parameter]
+        public EventCallback<double> OnThresholdReached { get; set; }
 
         /// <summary>
         /// Modifies the bounding box which is used to detect whether the element is visible on the screen. Defaults to <c>0px</c>.
@@ -54,6 +57,29 @@ namespace BytexDigital.Blazor.Components.Appear
         /// Value that indicates whether the element is currently in the viewport.
         /// </summary>
         public bool IsVisible => _visibilityObserver.IsVisible;
+        
+        
+        
+        /// <summary>
+        ///     Interval at which the <see cref="OnThresholdReached" /> event will be fired.
+        ///     <example>0.1 means every 10%: 0%, 10%, 20%, etc.</example>
+        ///     >
+        /// </summary>
+        [Parameter]
+        public double ThresholdInterval { get; set; } = 0.1;
+
+        /// <summary>
+        ///     Absolute list of thresholds to fire the <see cref="OnThresholdReached" /> event at. Overwrites automatic intervals
+        ///     created by <see cref="ThresholdInterval" />.
+        /// </summary>
+        [Parameter]
+        public List<double> Thresholds { get; set; }
+
+        /// <summary>
+        ///     User defined data that is useful to identify this observer inside a <see cref="VisibilityComparer" />.
+        /// </summary>
+        [Parameter]
+        public object Data { get; set; }
 
 
         private RenderFragment _content;
@@ -78,7 +104,7 @@ namespace BytexDigital.Blazor.Components.Appear
                 builder.OpenElement(i++, Tag);
                 builder.AddAttribute(i++, "_appear-id", Id);
                 builder.AddMultipleAttributes(i++, AdditionalAttributes);
-                builder.AddContent(i++, ChildContent);
+                builder.AddContent(i++, ChildContent, this);
                 builder.CloseElement();
             };
 
