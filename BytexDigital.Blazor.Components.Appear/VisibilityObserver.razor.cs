@@ -86,13 +86,19 @@ namespace BytexDigital.Blazor.Components.Appear
         public bool IsVisible { get; protected set; }
 
         /// <summary>
+        ///     Value that indicates whether the element is currently in the viewport or was in the past.
+        /// </summary>
+
+        public bool IsOrWasVisible { get; protected set; }
+
+        /// <summary>
         ///     Last threshold reached.
         /// </summary>
         public double CurrentThreshold { get; protected set; }
 
         [CascadingParameter]
         public VisibilityComparer Comparer { get; set; }
-        
+
         [Parameter]
         public EventCallback OnInitialized { get; set; }
 
@@ -138,7 +144,7 @@ namespace BytexDigital.Blazor.Components.Appear
                     nameof(JsOnDisappeared),
                     BoundingBoxMargin,
                     thresholds);
-                
+
                 StateHasChanged();
 
                 await OnInitialized.InvokeAsync();
@@ -182,7 +188,7 @@ namespace BytexDigital.Blazor.Components.Appear
             {
                 IsVisible = false;
                 await OnDisappeared.InvokeAsync();
-                
+
                 CurrentThreshold = threshold;
                 await OnThresholdReached.InvokeAsync(threshold);
 

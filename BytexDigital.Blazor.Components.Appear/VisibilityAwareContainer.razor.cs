@@ -57,8 +57,12 @@ namespace BytexDigital.Blazor.Components.Appear
         /// Value that indicates whether the element is currently in the viewport.
         /// </summary>
         public bool IsVisible => _visibilityObserver?.IsVisible ?? false;
-        
-        
+
+        /// <summary>
+        ///     Value that indicates whether the element is currently in the viewport or was in the past.
+        /// </summary>
+
+        public bool IsOrWasVisible => _visibilityObserver?.IsOrWasVisible ?? false;
         
         /// <summary>
         ///     Interval at which the <see cref="OnThresholdReached" /> event will be fired.
