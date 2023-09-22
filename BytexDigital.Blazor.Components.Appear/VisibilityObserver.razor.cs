@@ -162,6 +162,7 @@ namespace BytexDigital.Blazor.Components.Appear
             {
                 if (!HasAppeared)
                 {
+                    IsOrWasVisible = true;
                     await OnFirstAppeared.InvokeAsync();
                 }
 
